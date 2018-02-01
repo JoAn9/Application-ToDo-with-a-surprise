@@ -28,8 +28,8 @@ export class Youtube extends React.Component {
 
     render() {
         return (
-            <div style={{display: 'flex', justifyContent: 'center', paddingTop: '100px'}}>
-                <iframe width="764" height="430" src={`https://www.youtube.com/embed/${this.state.video}`} frameBorder="0" allow="autoplay encrypted-media" allowFullScreen={true}></iframe>
+            <div style={{display: 'flex', justifyContent: 'center', paddingTop: '10vh'}}>
+                <iframe width="611" height="344" src={`https://www.youtube.com/embed/${this.state.video}`} frameBorder="0" allow="autoplay encrypted-media" allowFullScreen={true}></iframe>
             </div>
         );
     }
