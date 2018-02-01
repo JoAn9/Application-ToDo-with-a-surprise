@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './reset.css';
-import './scss/main.scss';
+//import './reset.css';
+import './main.scss';
 import {Hello} from './Hello.jsx';
 
 

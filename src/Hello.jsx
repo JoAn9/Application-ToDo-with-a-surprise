@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './scss/main.scss';
+import './main.scss';
 
 import {ToDo} from "./ToDo.jsx";
 

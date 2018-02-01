@@ -1,66 +1,53 @@
+'use strict';
+
 var path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+//require('es6-promise').polyfill();
 
 module.exports = {
-  devtool: 'cheap-eval-source-map',
-  entry: {
-    main: path.join(__dirname, 'src', 'App.jsx')
-  },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].bundle.js'
-  },
-  watch: true,
-  devServer: {
-    contentBase: './dist',
-    compress: true,
-    hot: true,
-    inline: true,
-    port: 8080
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [	'es2015',	'stage-2',	'react']
-          }
-        }
-      },
-      {
-        test: /\.css/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
-      },
-      {
-        test: /\.scss$/,
-        //use: ['style-loader','css-loader', 'postcss-loader', 'sass-loader'] //Wybierz tą opcję jeśli potrzebujesz odświeżania stylów
-        use: ExtractTextPlugin.extract({ //Wybierz tą opcję jeśli nie potrzebujesz odświeżania stylów
-         fallback: "style-loader",
-         use: ['css-loader', 'postcss-loader', 'sass-loader']
-       })
-     },
-     {
-        test: /\.(png|jpe?g|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {}
-          }
-        ]
-      }
-    ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'index.html'),
-      hash: true
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('style.css')
-  ]
-}
+    entry : {
+        'js/app.js': './src/App.jsx'
+    },
+
+    output:{
+        filename: '[name]',
+        path: __dirname + '/build'
+    },
+
+    plugins: [
+        new ExtractTextPlugin('./css/app.css')
+    ],
+
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,  exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: { presets: ['es2015', 'stage-2' , 'react'] }
+            },
+            {
+                test: /\.scss$/,
+                loader: "style-loader!css-loader?url=false!sass-loader"
+            },
+            { test: /\.svg$/, loader: 'svg-loader?pngScale=2' },
+            {
+                test: /\.(png|jpg|mp3)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]'
+                }
+            },
+        ],
+
+    },
+
+    stats: {
+        // Colored output
+        colors: true
+    },
+
+    // Create Sourcemaps for the bundle
+    devtool: 'source-map'
+};
