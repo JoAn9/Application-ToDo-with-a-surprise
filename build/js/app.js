@@ -22856,7 +22856,7 @@ var Youtube = exports.Youtube = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { style: { display: 'flex', justifyContent: 'center', paddingTop: '10vh' } },
-                _react2.default.createElement('iframe', { width: '611', height: '344', src: 'https://www.youtube.com/embed/' + this.state.video, frameBorder: '0', allow: 'autoplay encrypted-media', allowFullScreen: true })
+                _react2.default.createElement('iframe', { width: '611', height: '344', src: 'https://www.youtube.com/embed/' + this.state.video, frameBorder: '0', allowFullScreen: true })
             );
         }
     }]);
