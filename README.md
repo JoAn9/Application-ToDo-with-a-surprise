@@ -2,4 +2,4 @@
 
 Written with React, ES6 and Fetch.
 
-It is now rewriting with Redux (because of a little messy component ToDo.jsx).
+It is now rewriting with Redux (because of a little messy components).
