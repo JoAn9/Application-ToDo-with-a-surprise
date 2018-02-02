@@ -4,11 +4,12 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-//require('es6-promise').polyfill();
+require('es6-promise').polyfill();
 
 module.exports = {
+    // entry: ['./src/js/main.jsx'],
     entry : {
-        'js/app.js': './src/App.jsx'
+        'js/app.js': './src/js/main.jsx'
     },
 
     output:{
@@ -33,11 +34,11 @@ module.exports = {
             },
             { test: /\.svg$/, loader: 'svg-loader?pngScale=2' },
             {
-                test: /\.(png|jpg|mp3)$/,
+                test: /\.(png|jpg)$/,
                 loader: 'file-loader',
                 options: {
                     name: '[path][name].[ext]'
-                }
+                }  
             },
         ],
 
@@ -49,5 +50,5 @@ module.exports = {
     },
 
     // Create Sourcemaps for the bundle
-    devtool: 'source-map'
+     devtool: 'source-map'
 };
