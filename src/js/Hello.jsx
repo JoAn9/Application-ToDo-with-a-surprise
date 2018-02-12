@@ -13,6 +13,7 @@ export class Hello extends React.Component {
             nameText: '',
             bandText: '',
             submited: false,
+            helloPage: false,
         };
     }
 
@@ -25,6 +26,7 @@ export class Hello extends React.Component {
     handleBandChange = event => {
         this.setState({
             band: event.target.value,
+            helloPage: false,
         })
     };
 
@@ -47,10 +49,29 @@ export class Hello extends React.Component {
         }
     };
 
+    handleHelloReturn = event => {
+        this.setState({
+            helloPage: true,
+            submited: false,
+        })
+    };
+
     render() {
-        if(this.state.submited) {
-            return <ToDo userName={this.state.name} band={this.state.band} />;
+        if(this.state.helloPage) {
+            return <Hello />
         }
+        if(this.state.submited) {
+            return <div className="container template">
+                <ToDo userName={this.state.name} band={this.state.band} />;
+
+                <input
+                    className="btn btn-primary btn-lg btn-return"
+                    type="submit"
+                    value="Wróć"
+                    onClick={this.handleHelloReturn}/>
+            </div>
+        }
+
         return (
             <div className="container hello">
                 <form onSubmit={this.handleSubmit}>

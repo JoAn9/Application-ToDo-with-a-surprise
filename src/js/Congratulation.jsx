@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {ToDo} from "./ToDo.jsx";
-import {Youtube} from "./Youtube.jsx";
+import {ToDo} from './ToDo.jsx';
+import {Youtube} from './Youtube.jsx';
 
 
 export class Congratulation extends React.Component {

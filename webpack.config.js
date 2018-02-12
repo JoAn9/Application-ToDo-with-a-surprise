@@ -16,7 +16,7 @@ module.exports = {
         filename: '[name]',
         path: __dirname + '/build'
     },
-
+    watch: true,
     plugins: [
         new ExtractTextPlugin('./css/app.css')
     ],
