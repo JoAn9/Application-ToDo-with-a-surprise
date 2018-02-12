@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 
 import {Congratulation} from './Congratulation.jsx';
 import {Hello} from './Hello.jsx';
@@ -17,8 +17,8 @@ export class ToDo extends React.Component {
             tasksInProgress: [],
             tasksDone: [],
             isDone: false,
-
             band: this.props.band,
+            helloPage: false,
         };
     }
 
@@ -82,6 +82,13 @@ export class ToDo extends React.Component {
     handleTodoReturn = event => {
         this.setState({
             isDone: false,
+
+        })
+    };
+
+    handleHelloReturn = event => {
+        this.setState({
+            helloPage: true,
         })
     };
 
@@ -112,8 +119,11 @@ export class ToDo extends React.Component {
                         onClick={this.handleTodoReturn}/>
                 </div>
             );
+        }
+        if(this.state.helloPage) {
+            return <Hello />
         } else {
-            return <div>
+            return <div className="container template">
                 <div className="list">
                     <ToDoHeader userName={this.props.userName} />
                 </div>
@@ -129,7 +139,7 @@ export class ToDo extends React.Component {
                         <ul className="tasks" style={{listStyleType: 'none'}}>
                             {this.state.tasksToDo.map ((task,i) => {
                                 return <li
-                                           key={i}>
+                                    key={i}>
                                     {i+1}. {task}
                                     <br/>
                                     <button
@@ -225,6 +235,11 @@ export class ToDo extends React.Component {
                         </ul>
                     </div>
                 </div>
+                <input
+                    className="btn btn-primary btn-lg btn-return"
+                    type="submit"
+                    value="Wróć"
+                    onClick={this.handleHelloReturn}/>
             </div>
         }
     }
