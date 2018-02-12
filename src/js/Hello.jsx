@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {ToDo} from "./ToDo.jsx";
+import {ToDo} from './ToDo.jsx';
+import {Footer} from './Footer.jsx';
 
 export class Hello extends React.Component {
     constructor(props){
@@ -71,13 +72,7 @@ export class Hello extends React.Component {
                         type="submit"
                         value="Potwierdzam dane"/>
                 </form>
-                <footer>
-                    Copyright 2018 | All Rights Reserved. - JoAn9___
-                    <a href='https://pl.freepik.com/darmowe-zdjecie/rama-z-urz-dem-urz-dze-na-bia-ym-biurko_1147875.htm'>
-                        Tła z Freepik
-                    </a>
-
-                </footer>
+                <Footer />
             </div>
         );
     }

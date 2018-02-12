@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import '../sass/main.scss';
 import {Hello} from './Hello.jsx';
 
-
 export class App extends React.Component {
     constructor(props) {
         super(props);
