@@ -2,4 +2,4 @@
 
 Written in React.js, with ES6, Fetch, Webpack, Sass and Bootstrap.
 
-It is now dividing into small Components and rewriting with Redux.
+It is now dividing into small components and rewriting with Redux.
